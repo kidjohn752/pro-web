@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethio-commerce - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🛍️ Ethio-commerce</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="auth-link">Login</a></li>
+                <li>
+                    <div class="cart-icon" onclick="toggleCart()">
+                        🛒<span class="cart-count" id="cartCount">0</span>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to Ethio-commerce</h1>
+            <p style="font-size: 1.3rem; margin-bottom: 2rem;">Discover amazing products both from the heart of Africa and the rest of the world at unbeatable prices.</p>
+            <a href="products.html" class="btn">Shop Now</a>
+        </section>
+
+        <div class="container">
+            <h2 class="section-title">Trending Now</h2>
+            <p class="section-subtitle">Our most popular picks this week</p>
+            <div class="products-grid" id="featuredGrid"></div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="products.html" class="btn btn-primary">View All Products</a>
+            </div>
+        </div>
+    </main>
+
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Shopping Cart</h2>
+            <button class="close-cart" onclick="toggleCart()">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer" id="cartFooter">
+            <div class="cart-total"><span>Total:</span><span id="cartTotal">$0.00</span></div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="checkoutCart()">Checkout</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Ethio-commerce. All rights reserved.</p>
+        <p>📧 support@ethio-commerce.com | 📞 (+251) 900-000000</p>
+    </footer>
+
+    <script src="product.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        // Render only 4 items for the homepage
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProductGrid('featuredGrid', 'all', 4);
+        });
+    </script>
+</body>
+</html>
